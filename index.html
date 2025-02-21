@@ -3,366 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toallas Personalizadas para Mascotas</title>
+    <title>LA TIENDA 3-33</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Raleway', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: rgb(249 250 251);
-            color: #333;
+            background: linear-gradient(to bottom right, #1a202c, #2d3748);
+            color: #fff;
+            min-height: 100vh;
         }
-
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+            margin: auto;
+            padding: 20px;
         }
-
         header {
-            background-color: rgb(249 115 22);
-            color: white;
-            padding: 1.5rem 0;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
             text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
         }
-
-        header p {
-            font-size: 1.125rem;
-            margin: 0;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+        .category-section {
+            margin-bottom: 3rem;
+        }
+        .category-title {
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .product-card {
+            background: rgba(51, 51, 51, 0.8);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
             text-align: center;
+            transition: transform 0.2s;
         }
-
-        nav {
-            background-color: rgb(254 215 170);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            padding: 0.75rem 0;
+        .product-card:hover {
+            transform: translateY(-5px);
         }
-
-        nav .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: rgb(31 41 55);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: rgb(249 115 22);
-        }
-
-        .products {
-            display: flex;
-            overflow-x: auto;
-            gap: 1.5rem;
-            padding: 1rem 0.5rem;
-            margin: 2rem 0;
-        }
-
-        .products img {
-            width: 18rem;
-            height: 12rem;
+        .product-image {
+            width: 100%;
+            height: 200px;
             object-fit: cover;
             border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .products img:hover {
-            transform: scale(1.05);
-        }
-
-        .section {
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .section h2 {
-            font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: rgb(31 41 55);
         }
-
-        .testimonial {
-            border-left: 4px solid rgb(249 115 22);
-            padding-left: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .testimonial p {
+        .product-name {
+            font-size: 1.1rem;
             margin: 0.5rem 0;
-            color: rgb(75 85 99);
-            font-style: italic;
         }
-
-        .testimonial .author {
-            font-weight: 600;
-            color: rgb(31 41 55);
+        .product-price {
+            color: #ffd700;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
         }
-
-        .faq-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .faq-item h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: rgb(31 41 55);
-        }
-
-        .order-form {
-            background-color: rgb(255 247 237);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: rgb(31 41 55);
-        }
-
-        .form-label i {
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-
-        .form-input,
-        .form-select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid rgb(209 213 219);
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: all 0.2s;
-        }
-
-        .form-input:focus,
-        .form-select:focus {
-            outline: none;
-            border-color: rgb(249 115 22);
-            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-        }
-
-        .submit-button {
-            width: 100%;
-            background-color: rgb(249 115 22);
-            color: white;
+        .add-to-cart {
+            background: #ffd700;
+            color: #1a202c;
             border: none;
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            font-size: 1rem;
-            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
             cursor: pointer;
+            font-weight: bold;
+            width: 100%;
             transition: background-color 0.2s;
+        }
+        .add-to-cart:hover {
+            background: #ffed4a;
+        }
+        .cart-section {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            background: #2d3748;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .cart-items {
+            margin: 1rem 0;
+        }
+        .cart-item {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #4a5568;
+        }
+        .cart-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #ffd700;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
             justify-content: center;
-            gap: 0.5rem;
+            align-items: center;
         }
-
-        .submit-button:hover {
-            background-color: rgb(234 88 12);
-        }
-
-        footer {
-            background-color: rgb(249 115 22);
-            color: white;
-            padding: 1.5rem 0;
-            margin-top: 3rem;
+        .modal-content {
+            background: #2d3748;
+            padding: 2rem;
+            border-radius: 0.5rem;
             text-align: center;
         }
-
-        @media (max-width: 640px) {
-            .nav-links {
-                flex-wrap: wrap;
-            }
-            
-            .products img {
-                width: 16rem;
-                height: 10rem;
-            }
+        .modal button {
+            margin: 0.5rem;
+            padding: 0.5rem 1.5rem;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🐾 Toallas Personalizadas para Mascotas</h1>
-            <p>La mejor calidad para consentir a tu compañero peludo</p>
+    <div id="age-verification" class="modal">
+        <div class="modal-content">
+            <h2>¿Eres mayor de 18 años?</h2>
+            <button onclick="verifyAge(true)">Sí</button>
+            <button onclick="verifyAge(false)">No</button>
         </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <div class="nav-links">
-                <a href="#productos">Productos</a>
-                <a href="#testimonios">Testimonios</a>
-                <a href="#faq">Preguntas Frecuentes</a>
-                <a href="#comprar">Comprar</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container">
-        <section id="productos" class="products">
-            <img src="https://i.ibb.co/pZmZqZx/rosada.png" alt="Toalla Rosa">
-            <img src="https://i.ibb.co/HKWyvDc/cafe.jpg" alt="Toalla Marrón">
-            <img src="https://i.ibb.co/wBXjW5P/azul.jpg" alt="Toalla Azul">
-            <img src="https://i.ibb.co/5nbRDqc/crema.jpg" alt="Toalla Crema">
-            <img src="https://i.ibb.co/P48bDDV/amarilla.jpg" alt="Toalla Amarilla">
-        </section>
-
-        <section class="section">
-            <h2>¿Por qué nuestras toallas?</h2>
-            <p>Nuestras toallas están hechas con los mejores materiales para garantizar suavidad, absorción y durabilidad. Además, puedes personalizarlas con el nombre de tu mascota.</p>
-        </section>
-
-        <section id="testimonios" class="section">
-            <h2>Testimonios</h2>
-            <div class="testimonial">
-                <p>"Las toallas son suaves y a mi perrito le encantaron. La personalización quedó perfecta."</p>
-                <p class="author">- Luz M.</p>
-            </div>
-            <div class="testimonial">
-                <p>"Muy buena calidad. Se nota que son hechas con amor y dedicación."</p>
-                <p class="author">- Carlos G.</p>
-            </div>
-        </section>
-
-        <section id="faq" class="section">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-item">
-                <h3>¿Cuánto tarda la entrega?</h3>
-                <p>Aproximadamente 5 a 7 días hábiles.</p>
-            </div>
-            <div class="faq-item">
-                <h3>¿Cómo personalizo mi toalla?</h3>
-                <p>En el formulario de compra puedes indicar el nombre de tu mascota.</p>
-            </div>
-        </section>
-
-        <section id="comprar" class="order-form">
-    <h2>Haz tu Pedido</h2>
- 
-</section>
-
-            <form id="orderForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label class="form-label" for="petName">Nombre de tu mascota</label>
-                    <input type="text" id="petName" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="color">Color de toalla</label>
-                    <select id="color" class="form-select">
-                        <option>Azul</option>
-                        <option>Rosa</option>
-                        <option>Verde</option>
-                        <option>Amarillo</option>
-                        <option>Marrón</option>
-                        <option>Gris</option>
-                        <option>Blanco</option>
-                        <option>Crema</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="address">
-                        <i data-lucide="map-pin"></i> Dirección
-                    </label>
-                    <input type="text" id="address" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="phone">
-                        <i data-lucide="phone"></i> Teléfono
-                    </label>
-                    <input type="tel" id="phone" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="email">
-                        <i data-lucide="mail"></i> Correo electrónico
-                    </label>
-                    <input type="email" id="email" class="form-input" required>
-                </div>
-<section id="comprar" class="order-form" style="text-align: center; background-color: #f2f2f2; padding: 10px; border-radius: 8px;">
-    <h2 style="font-size: 30px; font-weight: bold; color: #000; margin: 0;">$28.900 und</h2>
-</section>
-
-
-                <button type="submit" class="submit-button">
-                    <i data-lucide="shopping-cart"></i>
-                    Comprar por WhatsApp
-                </button>
-            </form>
-        </section>
-    </main>
-
-<footer style="background-color: #fff7ed; color: #7c2d12;">
-    <div class="container" style="text-align: center; padding: 15px; font-family: Arial, sans-serif;">
-        <p style="font-size: 16px; font-weight: bold; margin-bottom: 10px; color: #9a3412;">Horario y Condiciones de Envío</p>
-        <p>📦 <strong>Despachos:</strong> Lunes a Viernes de 9:00 a.m. a 5:00 p.m.</p>
-        <p>🚚 <strong>Modalidad:</strong> Envío Contra Entrega disponible.</p>
-        <p>🌍 <strong>Envíos Nacionales:</strong> Tiempo estimado de entrega: 5 días hábiles.</p>
-        <p>⚠️ <strong>Importante:</strong> Los tiempos de entrega pueden variar según la ubicación y la logística de la transportadora.</p>
-        <hr style="margin: 15px 0; border: 0.5px solid #fde68a;">
-        <p>© 2024 <strong>Toallas Personalizadas para Mascotas</strong>. Todos los derechos reservados.</p>
     </div>
-</footer>
 
+    <div class="container" id="store-content" style="display: none;">
+        <header>
+            <h1>TIENDA LA 3-33</h1>
+            <p>Tu tienda de confianza 24/7</p>
+        </header>
+
+        <main>
+            <div id="products-container"></div>
+        </main>
+
+        <aside class="cart-section">
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items" class="cart-items"></div>
+            <div id="cart-total" class="cart-total">Total: $0</div>
+            <div>
+                <label>
+                    <input type="checkbox" id="delivery-checkbox" onchange="updateTotal()">
+                    Incluir envío ($3,500)
+                </label>
+            </div>
+            <div id="delivery-address" style="display: none;">
+                <input type="text" placeholder="Dirección de envío" id="address-input">
+            </div>
+            <input type="tel" placeholder="Número de teléfono" id="phone-input">
+            <div>
+                <label><input type="radio" name="payment" value="Nequi"> Nequi</label>
+                <label><input type="radio" name="payment" value="Efectivo"> Efectivo</label>
+            </div>
+            <button onclick="checkout()" class="add-to-cart">Finalizar Compra</button>
+        </aside>
+    </div>
 
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
+        const products = [
+          // Rehidratantes
+{ id: 1, name: 'Electrolit Maracuyá 625ml', price: 8000, category: 'Rehidratantes', image: 'https://i.ibb.co/DLP0g4W/images-10.jpg' },
+{ id: 2, name: 'Electrolit Limón 625ml', price: 8000, category: 'Rehidratantes', image: 'https://i.ibb.co/DLP0g4W/images-10.jpg' },
+{ id: 3, name: 'Electrolit Naranja 625ml', price: 8000, category: 'Rehidratantes', image: 'https://i.ibb.co/DLP0g4W/images-10.jpg' },
 
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
+// Gaseosas
+{ id: 4, name: 'Coca-Cola Original 1.5L', price: 6010, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
+{ id: 5, name: 'Coca-Cola Zero 300ml', price: 3300, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
+{ id: 6, name: 'Coca-Cola Original 330ml', price: 3300, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
+{ id: 7, name: 'Postobón Manzana 400ml', price: 2000, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
+{ id: 8, name: 'Postobón Uva 400ml', price: 2000, category: 'Gaseosas', image: 'https://i.ibb.co/pXwY9bM/postobon-250.jpg' },
+{ id: 9, name: 'Postobón Hipinto 1.5L', price: 3700, category: 'Gaseosas', image: 'https://i.ibb.co/pXwY9bM/postobon-250.jpg' },
+
+// Aguas
+{ id: 10, name: 'Brisa con gas 600ml', price: 1500, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
+{ id: 11, name: 'Cristal con gas 600ml', price: 1500, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
+{ id: 12, name: 'Cristal Agua Natural 300ml x24 unidades', price: 28000, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
+{ id: 13, name: 'Cristal Agua Natural pequeña', price: 1000, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
+
+// Cervezas
+{ id: 14, name: 'Heineken Botella 330ml', price: 5000, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
+{ id: 15, name: 'Club Colombia Botella 330ml', price: 4500, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
+{ id: 16, name: 'Coronita Extra x6 (210ml c/u)', price: 24000, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
+{ id: 17, name: 'Poker Botella 330ml', price: 3500, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
+{ id: 18, name: 'Águila Light Botella 330ml', price: 3000, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
+
+// Licores
+{ id: 19, name: 'Aguardiente Amarillo 375ml', price: 28800, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+{ id: 20, name: 'Aguardiente Cristal 375ml', price: 25800, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+{ id: 21, name: 'Aguardiente Amarillo 750ml', price: 54500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+{ id: 22, name: 'Aguardiente Antioqueño 375ml', price: 28500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+{ id: 23, name: 'Whisky Old Parr 750ml', price: 160500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+{ id: 24, name: 'Old Parr 500ml', price: 115500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+{ id: 25, name: 'Vino Indio Amado 750ml', price: 13500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+{ id: 26, name: 'Ron Caldas 375ml', price: 32800, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
+
+// Cigarrillos
+{ id: 27, name: 'Marlboro Gold Original (20 unidades)', price: 7900, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
+{ id: 28, name: 'Lucky Strike Gin (20 unidades)', price: 7900, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
+{ id: 29, name: 'Marlboro Fusion Summer (20 unidades)', price: 7925, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
+{ id: 30, name: 'Imperial Caja Dura (20 unidades)', price: 8030, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
+{ id: 31, name: 'Lucky Strike Black (20 unidades)', price: 7200, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
+
+// Confitería
+{ id: 32, name: 'Chicles Mentos Menta (12 unidades)', price: 3500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 33, name: 'Chicles Orbit Menta (14 unidades)', price: 4000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 34, name: 'Caramelos Masticables Sofresh', price: 2000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 35, name: 'Chicles Big Babol (10 unidades)', price: 3000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 36, name: 'Caramelos de Menta La Fama', price: 1500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 37, name: 'Paletas de Fruta Luchi', price: 2000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 38, name: 'Galletas Dulces Oreo', price: 3500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 39, name: 'Galletas Choco Crunch', price: 3000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 40, name: 'Chocolatina Jet Cookies & Cream 50g', price: 4000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 41, name: 'Jumbo Chocolatina Jumbo Jet Maní 90g', price: 6500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 42, name: 'Jet Chocolatina Jet Mini Surtida 6g x24 Unds', price: 13900, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 43, name: 'Jet Chocolatina Jet Mini 6g x24 Unds ', price: 16300, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 44, name: 'Trident Value Menta 30,6g', price: 4900, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 45, name: 'Chocolatina Gol 28 G X3 Unds', price: 4990, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 46, name: 'Chocolatina Jumbo Rosca 31 G', price: 3700, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+{ id: 47, name: 'Chokis Galletas Chispas', price: 1700, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
+
+
+            // ... [Previous products continued]
+
+            // Add all other products here following the same pattern
+        ];
+
+        let cart = [];
+        const DELIVERY_COST = 3500;
+
+        function verifyAge(isAdult) {
+            if (isAdult) {
+                document.getElementById('age-verification').style.display = 'none';
+                document.getElementById('store-content').style.display = 'block';
+                localStorage.setItem('ageVerified', 'true');
+            } else {
+                window.location.href = 'https://www.google.com';
+            }
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+            const categories = [...new Set(products.map(p => p.category))];
             
-            const formData = {
-                petName: document.getElementById('petName').value,
-                color: document.getElementById('color').value,
-                address: document.getElementById('address').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value
-            };
+            categories.forEach(category => {
+                const categoryProducts = products.filter(p => p.category === category);
+                const section = document.createElement('section');
+                section.className = 'category-section';
+                section.innerHTML = `
+                    <h2 class="category-title">${category}</h2>
+                    <div class="products-grid">
+                        ${categoryProducts.map(product => `
+                            <div class="product-card">
+                                <img src="${product.image}" alt="${product.name}" class="product-image">
+                                <h3 class="product-name">${product.name}</h3>
+                                <p class="product-price">$${product.price.toLocaleString()}</p>
+                                <button onclick="addToCart(${product.id})" class="add-to-cart">
+                                    Agregar al Carrito
+                                </button>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(section);
+            });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                updateCartDisplay();
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <span>${item.name}</span>
+                    <span>$${item.price.toLocaleString()}</span>
+                    <button onclick="removeFromCart(${item.id})">×</button>
+                </div>
+            `).join('');
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+            const includeDelivery = document.getElementById('delivery-checkbox').checked;
+            const total = includeDelivery ? subtotal + DELIVERY_COST : subtotal;
+            document.getElementById('cart-total').textContent = `Total: $${total.toLocaleString()}`;
+            document.getElementById('delivery-address').style.display = includeDelivery ? 'block' : 'none';
+        }
+
+        function checkout() {
+            const phone = document.getElementById('phone-input').value;
+            const includeDelivery = document.getElementById('delivery-checkbox').checked;
+            const address = includeDelivery ? document.getElementById('address-input').value : '';
+            const payment = document.querySelector('input[name="payment"]:checked')?.value;
+
+            if (!phone) {
+                alert('Por favor ingresa tu número de teléfono');
+                return;
+            }
+            if (includeDelivery && !address) {
+                alert('Por favor ingresa tu dirección de envío');
+                return;
+            }
+            if (!payment) {
+                alert('Por favor selecciona un método de pago');
+                return;
+            }
 
             const message = `
-🐾 Nuevo Pedido de Toalla Personalizada 🐾
+🛒 *Nuevo Pedido*
 
-Nombre de mascota: ${formData.petName}
-Color: ${formData.color}
-Dirección: ${formData.address}
-Teléfono: ${formData.phone}
-Email: ${formData.email}
+*Productos:*
+${cart.map(item => `- ${item.name}: $${item.price.toLocaleString()}`).join('\n')}
+
+*Subtotal:* $${cart.reduce((sum, item) => sum + item.price, 0).toLocaleString()}
+${includeDelivery ? `*Envío:* $${DELIVERY_COST.toLocaleString()}` : ''}
+*Total:* $${(cart.reduce((sum, item) => sum + item.price, 0) + (includeDelivery ? DELIVERY_COST : 0)).toLocaleString()}
+
+*Datos de entrega:*
+${includeDelivery ? `📍 Dirección: ${address}` : '🏪 Retiro en tienda'}
+📱 Teléfono: ${phone}
+💰 Método de pago: ${payment}
             `;
-            
-            window.open(`https://wa.me/573204828022?text=${encodeURIComponent(message)}`, '_blank');
+
+            window.open(`https://wa.me/573222553397?text=${encodeURIComponent(message)}`, '_blank');
         }
+
+        // Check age verification on load
+        window.onload = function() {
+            if (localStorage.getItem('ageVerified') === 'true') {
+                document.getElementById('age-verification').style.display = 'none';
+                document.getElementById('store-content').style.display = 'block';
+            } else {
+                document.getElementById('age-verification').style.display = 'flex';
+            }
+            renderProducts();
+        };
     </script>
 </body>
 </html>
