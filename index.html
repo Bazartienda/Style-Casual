@@ -3,292 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LA TIENDA 3-33</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <title>Style y Casual</title>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #1a202c, #2d3748);
-            color: #fff;
+            background-color: rgb(249, 250, 251);
             min-height: 100vh;
         }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+
+        .nav {
+            background: white;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-        }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: #ffd700;
-            margin-bottom: 1rem;
-        }
-        .category-section {
-            margin-bottom: 3rem;
-        }
-        .category-title {
-            color: #ffd700;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .product-card {
-            background: rgba(51, 51, 51, 0.8);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .product-name {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-        }
-        .product-price {
-            color: #ffd700;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-        .add-to-cart {
-            background: #ffd700;
-            color: #1a202c;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            transition: background-color 0.2s;
-        }
-        .add-to-cart:hover {
-            background: #ffed4a;
-        }
-        .cart-section {
-            position: fixed;
-            right: 2rem;
-            top: 2rem;
-            background: #2d3748;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            width: 300px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .cart-items {
-            margin: 1rem 0;
-        }
-        .cart-item {
+
+        .nav-container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #4a5568;
+            height: 4rem;
         }
-        .cart-total {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 1rem 0;
-            color: #ffd700;
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgb(17, 24, 39);
         }
-        .modal {
+
+        .nav-menu {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+                gap: 2rem;
+            }
+        }
+
+        .nav-link {
+            color: rgb(55, 65, 81);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: rgb(17, 24, 39);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            padding: 0.5rem 2.5rem;
+            border-radius: 9999px;
+            border: 1px solid rgb(209, 213, 219);
+            font-size: 0.875rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: rgb(236, 72, 153);
+            box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.2);
+        }
+
+        .hero {
+            position: relative;
+            height: 24rem;
+            background: rgb(17, 24, 39);
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
+            object-fit: cover;
+            opacity: 0.75;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 6rem 1rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgb(209, 213, 219);
+            max-width: 48rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: white;
+            color: rgb(17, 24, 39);
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .hero-button:hover {
+            background: rgb(243, 244, 246);
+        }
+
+        .products {
+            max-width: 80rem;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-0.25rem);
+        }
+
+        .product-image {
+            position: relative;
+            padding-bottom: 125%;
+        }
+
+        .product-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 1rem;
+        }
+
+        .product-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: rgb(17, 24, 39);
+            font-weight: 600;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: rgb(236, 72, 153);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .add-to-cart:hover {
+            background: rgb(219, 39, 119);
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 20rem;
+            background: white;
+            box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 50;
+        }
+
+        .cart.open {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgb(229, 231, 235);
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
-        .modal-content {
-            background: #2d3748;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            text-align: center;
+
+        .cart-title {
+            font-size: 1.25rem;
+            font-weight: 500;
         }
-        .modal button {
-            margin: 0.5rem;
-            padding: 0.5rem 1.5rem;
+
+        .cart-items {
+            padding: 1.5rem;
+            overflow-y: auto;
+            max-height: calc(100vh - 15rem);
         }
-        .icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 0.5rem;
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgb(229, 231, 235);
+        }
+
+        .cart-item-image {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-price {
+            color: rgb(17, 24, 39);
+            font-weight: 600;
+        }
+
+        .cart-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            border-top: 1px solid rgb(229, 231, 235);
+            background: white;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .delivery-option {
+            margin-bottom: 1rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid rgb(209, 213, 219);
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-methods {
+            margin-bottom: 1rem;
+        }
+
+        .checkout-button {
+            width: 100%;
+            background: rgb(236, 72, 153);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background: rgb(219, 39, 119);
+        }
+
+        .cart-toggle {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background: rgb(236, 72, 153);
+            color: white;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-    <div id="age-verification" class="modal">
-        <div class="modal-content">
-            <h2>¿Eres mayor de 18 años?</h2>
-            <button onclick="verifyAge(true)">Sí</button>
-            <button onclick="verifyAge(false)">No</button>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">Style y Casual</div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Mujer</a>
+                <a href="#" class="nav-link">Hombre</a>
+                <a href="#" class="nav-link">Accesorios</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                    <i data-lucide="search" class="absolute left-3 top-2.5 w-5 h-5 text-gray-400"></i>
+                </div>
+                <button class="p-2">
+                    <i data-lucide="heart" class="w-6 h-6 text-gray-700"></i>
+                </button>
+                <button class="cart-toggle p-2" onclick="toggleCart()">
+                    <i data-lucide="shopping-bag" class="w-6 h-6 text-gray-700"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=2000" alt="Hero" class="hero-image">
+        <div class="hero-content">
+            <h1 class="hero-title">Nueva Colección</h1>
+            <p class="hero-description">Descubre las últimas tendencias en moda y estilo</p>
+            <a href="#products" class="hero-button">Ver Productos</a>
         </div>
     </div>
 
-    <div class="container" id="store-content" style="display: none;">
-        <header>
-            <h1>TIENDA LA 3-33</h1>
-            <p>Tu tienda de confianza 24/7</p>
-        </header>
+    <div id="products" class="products">
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
 
-        <main>
-            <div id="products-container"></div>
-        </main>
-
-        <aside class="cart-section">
-            <h2>Carrito de Compras</h2>
-            <div id="cart-items" class="cart-items"></div>
-            <div id="cart-total" class="cart-total">Total: $0</div>
-            <div>
+    <div class="cart" id="cart">
+        <div class="cart-header">
+            <h2 class="cart-title">Carrito de Compras</h2>
+            <button onclick="toggleCart()">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="subtotal">$0</span>
+            </div>
+            <div class="delivery-option">
                 <label>
-                    <input type="checkbox" id="delivery-checkbox" onchange="updateTotal()">
-                    Incluir envío ($3,500)
+                    <input type="checkbox" id="deliveryCheckbox" onchange="updateTotal()">
+                    <span>Incluir envío ($3,500)</span>
                 </label>
             </div>
-            <div id="delivery-address" style="display: none;">
-                <input type="text" placeholder="Dirección de envío" id="address-input">
+            <div id="deliveryAddress" style="display: none;">
+                <input type="text" class="input-field" placeholder="Dirección de envío" id="addressInput">
             </div>
-            <input type="tel" placeholder="Número de teléfono" id="phone-input">
-            <div>
-                <label><input type="radio" name="payment" value="Nequi"> Nequi</label>
-                <label><input type="radio" name="payment" value="Efectivo"> Efectivo</label>
+            <input type="tel" class="input-field" placeholder="Número de teléfono" id="phoneInput">
+            <div class="payment-methods">
+                <label>
+                    <input type="radio" name="payment" value="Nequi"> Nequi
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="Efectivo"> Efectivo
+                </label>
             </div>
-            <button onclick="checkout()" class="add-to-cart">Finalizar Compra</button>
-        </aside>
+            <button class="checkout-button" onclick="checkout()">
+                Finalizar Compra (<span id="total">$0</span>)
+            </button>
+        </div>
     </div>
 
     <script>
         const products = [
-          // Rehidratantes
-{ id: 1, name: 'Electrolit Maracuyá 625ml', price: 8000, category: 'Rehidratantes', image: 'https://i.ibb.co/DLP0g4W/images-10.jpg' },
-{ id: 2, name: 'Electrolit Limón 625ml', price: 8000, category: 'Rehidratantes', image: 'https://i.ibb.co/DLP0g4W/images-10.jpg' },
-{ id: 3, name: 'Electrolit Naranja 625ml', price: 8000, category: 'Rehidratantes', image: 'https://i.ibb.co/DLP0g4W/images-10.jpg' },
-
-// Gaseosas
-{ id: 4, name: 'Coca-Cola Original 1.5L', price: 6010, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
-{ id: 5, name: 'Coca-Cola Zero 300ml', price: 3300, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
-{ id: 6, name: 'Coca-Cola Original 330ml', price: 3300, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
-{ id: 7, name: 'Postobón Manzana 400ml', price: 2000, category: 'Gaseosas', image: 'https://i.ibb.co/jkVV4SK/Untitled-3.jpg' },
-{ id: 8, name: 'Postobón Uva 400ml', price: 2000, category: 'Gaseosas', image: 'https://i.ibb.co/pXwY9bM/postobon-250.jpg' },
-{ id: 9, name: 'Postobón Hipinto 1.5L', price: 3700, category: 'Gaseosas', image: 'https://i.ibb.co/pXwY9bM/postobon-250.jpg' },
-
-// Aguas
-{ id: 10, name: 'Brisa con gas 600ml', price: 1500, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
-{ id: 11, name: 'Cristal con gas 600ml', price: 1500, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
-{ id: 12, name: 'Cristal Agua Natural 300ml x24 unidades', price: 28000, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
-{ id: 13, name: 'Cristal Agua Natural pequeña', price: 1000, category: 'Aguas', image: 'https://images.unsplash.com/photo-1602537337594-b6b1c9421f64?auto=format&fit=crop&w=300' },
-
-// Cervezas
-{ id: 14, name: 'Heineken Botella 330ml', price: 5000, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
-{ id: 15, name: 'Club Colombia Botella 330ml', price: 4500, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
-{ id: 16, name: 'Coronita Extra x6 (210ml c/u)', price: 24000, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
-{ id: 17, name: 'Poker Botella 330ml', price: 3500, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
-{ id: 18, name: 'Águila Light Botella 330ml', price: 3000, category: 'Cervezas', image: 'https://images.unsplash.com/photo-1598188304944-bb0e9df9a989?auto=format&fit=crop&w=300' },
-
-// Licores
-{ id: 19, name: 'Aguardiente Amarillo 375ml', price: 28800, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-{ id: 20, name: 'Aguardiente Cristal 375ml', price: 25800, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-{ id: 21, name: 'Aguardiente Amarillo 750ml', price: 54500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-{ id: 22, name: 'Aguardiente Antioqueño 375ml', price: 28500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-{ id: 23, name: 'Whisky Old Parr 750ml', price: 160500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-{ id: 24, name: 'Old Parr 500ml', price: 115500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-{ id: 25, name: 'Vino Indio Amado 750ml', price: 13500, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-{ id: 26, name: 'Ron Caldas 375ml', price: 32800, category: 'Licores', image: 'https://images.unsplash.com/photo-1574454130386-48b3a6d467cd?auto=format&fit=crop&w=300' },
-
-// Cigarrillos
-{ id: 27, name: 'Marlboro Gold Original (20 unidades)', price: 7900, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
-{ id: 28, name: 'Lucky Strike Gin (20 unidades)', price: 7900, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
-{ id: 29, name: 'Marlboro Fusion Summer (20 unidades)', price: 7925, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
-{ id: 30, name: 'Imperial Caja Dura (20 unidades)', price: 8030, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
-{ id: 31, name: 'Lucky Strike Black (20 unidades)', price: 7200, category: 'Cigarrillos', image: 'https://images.unsplash.com/photo-1586304229917-531b8b7e6015?auto=format&fit=crop&w=300' },
-
-// Confitería
-{ id: 32, name: 'Chicles Mentos Menta (12 unidades)', price: 3500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 33, name: 'Chicles Orbit Menta (14 unidades)', price: 4000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 34, name: 'Caramelos Masticables Sofresh', price: 2000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 35, name: 'Chicles Big Babol (10 unidades)', price: 3000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 36, name: 'Caramelos de Menta La Fama', price: 1500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 37, name: 'Paletas de Fruta Luchi', price: 2000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 38, name: 'Galletas Dulces Oreo', price: 3500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 39, name: 'Galletas Choco Crunch', price: 3000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 40, name: 'Chocolatina Jet Cookies & Cream 50g', price: 4000, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 41, name: 'Jumbo Chocolatina Jumbo Jet Maní 90g', price: 6500, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 42, name: 'Jet Chocolatina Jet Mini Surtida 6g x24 Unds', price: 13900, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 43, name: 'Jet Chocolatina Jet Mini 6g x24 Unds ', price: 16300, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 44, name: 'Trident Value Menta 30,6g', price: 4900, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 45, name: 'Chocolatina Gol 28 G X3 Unds', price: 4990, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 46, name: 'Chocolatina Jumbo Rosca 31 G', price: 3700, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-{ id: 47, name: 'Chokis Galletas Chispas', price: 1700, category: 'Confitería', image: 'https://images.unsplash.com/photo-1602120397991-fd96a99bb722?auto=format&fit=crop&w=300' },
-
-
-            // ... [Previous products continued]
-
-            // Add all other products here following the same pattern
+            {
+                id: 1,
+                name: 'Vestido Floral Verano',
+                price: 89900,
+                image: 'https://i.ibb.co/Hf6vwwg/Whats-App-Image-2025-02-21-at-2-23-57-PM.jpg',
+                description: 'Vestido ligero con estampado floral, perfecto para el verano'
+            },
+            {
+                id: 2,
+                name: 'Blusa Elegante',
+                price: 59900,
+                image: 'https://i.ibb.co/TBvQfHn/Whats-App-Image-2025-02-21-at-2-23-57-PM-1.jpg',
+                description: 'Blusa elegante con detalles en encaje'
+            },
+            {
+                id: 3,
+                name: 'Conjunto Deportivo',
+                price: 129900,
+                image: 'https://i.ibb.co/vCkRnXQ/Whats-App-Image-2025-02-21-at-2-23-58-PM-1.jpg',
+                description: 'Conjunto deportivo moderno y cómodo'
+            }
         ];
 
         let cart = [];
         const DELIVERY_COST = 3500;
 
-        function verifyAge(isAdult) {
-            if (isAdult) {
-                document.getElementById('age-verification').style.display = 'none';
-                document.getElementById('store-content').style.display = 'block';
-                localStorage.setItem('ageVerified', 'true');
-            } else {
-                window.location.href = 'https://www.google.com';
-            }
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">$${product.price.toLocaleString()}</p>
+                        <button class="add-to-cart" onclick="addToCart(${product.id})">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        function renderProducts() {
-            const container = document.getElementById('products-container');
-            const categories = [...new Set(products.map(p => p.category))];
-            
-            categories.forEach(category => {
-                const categoryProducts = products.filter(p => p.category === category);
-                const section = document.createElement('section');
-                section.className = 'category-section';
-                section.innerHTML = `
-                    <h2 class="category-title">${category}</h2>
-                    <div class="products-grid">
-                        ${categoryProducts.map(product => `
-                            <div class="product-card">
-                                <img src="${product.image}" alt="${product.name}" class="product-image">
-                                <h3 class="product-name">${product.name}</h3>
-                                <p class="product-price">$${product.price.toLocaleString()}</p>
-                                <button onclick="addToCart(${product.id})" class="add-to-cart">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-                container.appendChild(section);
-            });
+        function toggleCart() {
+            document.getElementById('cart').classList.toggle('open');
         }
 
         function addToCart(productId) {
@@ -305,29 +480,41 @@
         }
 
         function updateCartDisplay() {
-            const cartItems = document.getElementById('cart-items');
+            const cartItems = document.getElementById('cartItems');
+            document.getElementById('cartCount').textContent = cart.length;
+            
             cartItems.innerHTML = cart.map(item => `
                 <div class="cart-item">
-                    <span>${item.name}</span>
-                    <span>$${item.price.toLocaleString()}</span>
-                    <button onclick="removeFromCart(${item.id})">×</button>
+                    <div class="cart-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+                        <button onclick="removeFromCart(${item.id})" class="text-pink-600 hover:text-pink-500">
+                            Eliminar
+                        </button>
+                    </div>
                 </div>
             `).join('');
+            
             updateTotal();
         }
 
         function updateTotal() {
             const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
-            const includeDelivery = document.getElementById('delivery-checkbox').checked;
+            const includeDelivery = document.getElementById('deliveryCheckbox').checked;
             const total = includeDelivery ? subtotal + DELIVERY_COST : subtotal;
-            document.getElementById('cart-total').textContent = `Total: $${total.toLocaleString()}`;
-            document.getElementById('delivery-address').style.display = includeDelivery ? 'block' : 'none';
+            
+            document.getElementById('subtotal').textContent = `$${subtotal.toLocaleString()}`;
+            document.getElementById('total').textContent = `$${total.toLocaleString()}`;
+            document.getElementById('deliveryAddress').style.display = includeDelivery ? 'block' : 'none';
         }
 
         function checkout() {
-            const phone = document.getElementById('phone-input').value;
-            const includeDelivery = document.getElementById('delivery-checkbox').checked;
-            const address = includeDelivery ? document.getElementById('address-input').value : '';
+            const phone = document.getElementById('phoneInput').value;
+            const includeDelivery = document.getElementById('deliveryCheckbox').checked;
+            const address = includeDelivery ? document.getElementById('addressInput').value : '';
             const payment = document.querySelector('input[name="payment"]:checked')?.value;
 
             if (!phone) {
@@ -344,7 +531,7 @@
             }
 
             const message = `
-🛒 *Nuevo Pedido*
+🛒 *Nuevo Pedido - Style y Casual*
 
 *Productos:*
 ${cart.map(item => `- ${item.name}: $${item.price.toLocaleString()}`).join('\n')}
@@ -356,22 +543,16 @@ ${includeDelivery ? `*Envío:* $${DELIVERY_COST.toLocaleString()}` : ''}
 *Datos de entrega:*
 ${includeDelivery ? `📍 Dirección: ${address}` : '🏪 Retiro en tienda'}
 📱 Teléfono: ${phone}
-💰 Método de pago: ${payment}
-            `;
+💰 Método de pago: ${payment}`;
 
             window.open(`https://wa.me/573222553397?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // Check age verification on load
-        window.onload = function() {
-            if (localStorage.getItem('ageVerified') === 'true') {
-                document.getElementById('age-verification').style.display = 'none';
-                document.getElementById('store-content').style.display = 'block';
-            } else {
-                document.getElementById('age-verification').style.display = 'flex';
-            }
-            renderProducts();
-        };
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Initialize the page
+        renderProducts();
     </script>
 </body>
 </html>
