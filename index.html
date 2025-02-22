@@ -342,6 +342,7 @@
 </head>
 <body>
     <nav class="nav">
+      
         <div class="nav-container">
             <div class="nav-brand">Style y Casual</div>
             <div class="nav-menu">
@@ -374,6 +375,7 @@
             <a href="#products" class="hero-button">Ver Productos</a>
         </div>
     </div>
+    
 
     <div id="products" class="products">
         <div class="products-grid" id="productsGrid"></div>
@@ -385,19 +387,33 @@
             <button onclick="toggleCart()">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
+            
         </div>
         <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Subtotal</span>
                 <span id="subtotal">$0</span>
+                
             </div>
+            <div class="form-group">
+                    <label class="form-label" for="color">Elige la Talla</label>
+                    <select id="color" class="form-select">
+                        <option>s</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                       
+                    </select>
+                </div>
+                
             <div class="delivery-option">
                 <label>
                     <input type="checkbox" id="deliveryCheckbox" onchange="updateTotal()">
                     <span>Incluir envío ($3,500)</span>
                 </label>
             </div>
+            
             <div id="deliveryAddress" style="display: none;">
                 <input type="text" class="input-field" placeholder="Dirección de envío" id="addressInput">
             </div>
@@ -415,6 +431,7 @@
             </button>
         </div>
     </div>
+    
 
     <script>
         const products = [
@@ -424,6 +441,7 @@
                 price: 33000,
                 image: 'https://i.ibb.co/Hf6vwwgq/Whats-App-Image-2025-02-21-at-2-23-57-PM.jpg',
                 description: 'Vestido ligero con estampado floral, perfecto para el verano'
+                
             },
             
             {
